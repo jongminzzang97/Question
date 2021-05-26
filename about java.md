@@ -1,4 +1,4 @@
-# 자바란 무엇인가?
+# About Java
 
 ## 들어가기
     처음 프로그래밍을 배울 때 자바로 시작하는 경우가 많다.
@@ -12,7 +12,7 @@
 
 ## 플렛폼으로써의 자바
     자바(Java)는 자바로 기술된 프로그램 개발 및 실행을 할 수 있는 소프트웨어 모임의 총칭이다. 
-    자바 프로그램은 운영체제나 하드웨어에 의존하지 않는 바이트 코드(중간 언어)인 추상적인 코드로구현된다. 
+    자바 프로그램은 운영체제나 하드웨어에 의존하지 않는 바이트 코드(중간 언어)인 추상적인 코드 로 구현된다. 
     따라서, 자바 프로그램을 실행하기 위해서는 자바 가상 머신(JVM)과 개발에 필요한 표준 라이브러리 세트와 컴파일러의 환경만 맞추면
     자바 프로그램은 모든 환경에서 동일하게 동작한다. 
     이러한 실행환경과 개발환경을 제공하는 것이 자바 플랫폼이다.
@@ -34,16 +34,16 @@
     Java의 실행방식은 조금 특이하다.
     컴파일 언어와 인터프리터 언어의 방식을 모두 사용한다고 할 수 있다.
 
-    먼저 개발자가 작성한 코드는 .java 파일에 코드이 된다.
+    먼저 개발자가 작성한 코드는 .java 파일에 저장이 된다.
     작성된 코드는 실행을 위해 컴파일이 되어야 하고 그 결과가 .class 파일이다.
     이 파일은 JVM(Java Virtual Machine)이라는 가상환경에서 실행된다. 
     이 때 실행되는 방식이 인터프리터 방식이다.
-    JVM은 .class파일의 이진코드를 한줄 씩 해석하며 실행한다.
+    JVM은 .class파일의 바이트 코드를 한줄 씩 해석하며 실행한다.
 
     WORA(Write Once, Read Anywhere)
     플랫폼에 종속되지 않고 사용하기 위해서 이 방식을 채택하였다는 것이 중요하다.
     
-    컴파일이란 개발자자가 작성한 코드가 실행 가능한 파일로 바꾸는 과정이라 생각하면 된다.
+    컴파일이란 개발자가 작성한 코드를 실행 가능한 파일로 바꾸는 과정이라 생각하면 된다.
     그런데 CPU마다 명령어의 체계가 다르고 운영체제에 따라 API도 다르다. 
     따라서 일반적인 컴파일 언어에서 컴파일 된 파일은 다른 환경에서 작동하지 않을 가능성이 높다.
     
@@ -63,13 +63,39 @@
     메모리의 관리를 도와주는 garbage collector등도 포함되어 있다.
 
     JDK는 Java Development Kit의 약자이며, 다시 말해 자바 개발을 하기 위해 필요한 묶음이다.
-    코드를 작성할 때는 라이브러리들도 필요하고, 컴파일의 과정도 거쳐야하며, 
+    코드를 작성하고 실행해볼 때는 라이브러리들도 필요하고, 컴파일의 과정도 거쳐야하며, 
     컴파일의 결과를 JVM위에서 실행도 해봐야 한다. 이런 모든 것들을 묶어서 배포하는 것이 JDK이다.
-    그래서 JDK를 다운로드 받으면 JRE도 포함되어 있다.
-    가장 중요한 차이가 컴파일을 하기 위한 javac가 있다는 것이며
-    다른 javadoc(Java documentation generator)이나 jdb(Java Debugger)같은 툴또한 제공한다.
+    따라서 JDK를 다운로드 받으면 JRE도 포함되어 있다.
+    가장 중요한 차이는 컴파일을 하기 위한 javac의 포함 여부이며
+    다른 javadoc(Java documentation generator)이나 jdb(Java Debugger)같은 툴또한 JDK에만 제공된다.
     
+## JVM 추가 
+
+    https://stackoverflow.com/questions/7674839/is-the-jvm-a-compiler-or-an-interpreter
+    매우 좋은 글이 있어서 가져왔다. 직접 읽는 것이 더욱 좋다.
     
+    질문 :
+    JRE는 컴파일러냐 인터프리터냐 둘다 아니라면 무엇이냐?
+    
+    답 : 
+    JVM is Java Virtual Machine -- Runs/ Interprets/ translates Bytecode into Native Machine Code
+    JVM is a virtual platform that resides on your RAM
+    Its component, Class loader loads the .class file into the RAM
+    The Byte code Verifier component in JVM checks if there are any access restriction violations in your code. (This is one of the principle reasons why java is secure)
+    Next, the Execution Engine component converts the Bytecode into executable machine code
+
+    JVM은 램위에 존재하는 가상 플랫폼이다.
+    그것의 구성요소인 Class loader는 .class파일을 램 위에 올린다.
+    다른 구성요소인 Byte code Verifier는 코드의 접근 제한이나 위험을 검사한다.
+    (이것이 자바가 안전한 이유 중 하나이다.)
+    그리고 실행 엔진이 바이트 코드를 실행가능한 기계코드로 바꾼다.
+
+    https://www.guru99.com/java-virtual-machine-jvm.html
+    https://www.youtube.com/watch?v=G1ubVOl9IBw&t=2s
+    이것 또한 참고할만하다.
+
+
+
 
 ## 버전 
     java version 을 보면 8, 9, 10, 11 이렇게 볼 수 도 있고
@@ -85,7 +111,6 @@
 
     
  
-
 ## SE vs EE
     jdk를 다운로드 받을 때 선택하게 된다.
     SE는 Standard Edition, EE는 Enterprise Edition의 약자이다. 
